@@ -98,8 +98,8 @@ set $ws1 "1- Firefox "
 set $ws2 "2- Terminals "
 set $ws3 "3- Folders "
 set $ws4 "4- Random coffee "
-set $ws5 "5"
-set $ws6 "6"
+set $ws5 "5- Art "
+set $ws6 "6- Coding {-}"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -133,6 +133,9 @@ bindsym $mod+Shift+agrave move container to workspace $ws10
 assign [class="Firefox"] $ws1
 assign [class="Lxterminal"] $ws2
 assign [class="Pcmanfm"] $ws3
+assign [class="Inkscape"] $ws5
+assign [class="Gimp"] $ws5
+assign [class="mpv"] $ws4
 
 # App shortcuts
 bindsym $mod+b exec firefox
@@ -213,15 +216,17 @@ bar {
 exec --no-startup-id feh --bg-scale '/home/lyes/Images/wallpaper.jpg'
 
 # Settings for I3-Gaps
-for_window [class="^.*"] border pixel 4.5
-gaps inner 11
-gaps outer 11
+for_window [class="^.*"] border pixel 3
+gaps inner 5
+gaps outer 5
 #smart_gaps on
 #smart_borders on
 
-# PulseAudio settings
-exec --no-startup-id i3-msg 'exec /usr/bin/pulseaudio --start
+# Multimedia Keys
 
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+# increase volume
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+# decrease volume
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+# mute volume
+bindsym XF86AudioMute exec amixer -q set Master mute
