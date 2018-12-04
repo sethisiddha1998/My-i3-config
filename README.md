@@ -3,9 +3,6 @@
 ~ Theme used:
 GTK: Arc-Darker / Icones: Arc / Firefox: Arc-Darker
 
-~ Software used:
-networkmanager j4-dmenu-desktop + dmuen pulseaudio pavucontrol rxvt-unicode lxappearance leafpad feh xarchiver scrot xclipw3m imagemagick curl
-
 ~ Fonts used: 
 ttf-roboto envypn-font cherry-font
 
