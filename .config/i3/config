@@ -1,0 +1,235 @@
+# Speyll's i3 config file
+
+###~ Mod key binding
+set $mod Mod4
+
+###~ Wallpaper feh configuration
+exec --no-startup-id feh --bg-fill '/home/lyes/Images/Wallpaper/wallpaper.png'
+
+###~ i3 Reloading / Restarting / Exiting settings
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+###~ Font config
+font pango:t cherry wide 8
+
+###~ i3 Essenstial bindings
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# Kill focused window
+bindsym $mod+Shift+A kill
+
+# Start dmenu (a program launcher)
+bindsym $mod+d exec j4-dmenu-desktop --dmenu="dmenu -fn 't cherry-10' -nb '#2f343f' -nf '#9ca4aa' -sb '#2f343f' -sf '#e8e8e8'"
+
+# Change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+m focus right
+
+# Alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+M move right
+
+# Alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# Split in vertical orientation
+bindsym $mod+v split v
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# Focus the parent container
+bindsym $mod+q focus parent
+
+# Focus the child container
+#bindsym $mod+d focus child
+
+###~ Workspaces
+
+set $ws1 "1: Firefox "
+set $ws2 "2: Terminals "
+set $ws3 "3: Folders "
+set $ws4 "4: Random coffee "
+set $ws5 "5: Art "
+set $ws6 "6: Coding {-}"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Switch to workspace
+bindsym $mod+ampersand workspace $ws1
+bindsym $mod+eacute workspace $ws2
+bindsym $mod+quotedbl workspace $ws3
+bindsym $mod+apostrophe workspace $ws4
+bindsym $mod+parenleft workspace $ws5
+bindsym $mod+minus workspace $ws6
+bindsym $mod+egrave workspace $ws7
+bindsym $mod+underscore workspace $ws8
+bindsym $mod+ccedilla workspace $ws9
+bindsym $mod+agrave workspace $ws10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+eacute move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+egrave move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+ccedilla move container to workspace $ws9
+bindsym $mod+Shift+agrave move container to workspace $ws10
+
+# Default assign's workspace
+assign [class="Firefox"] $ws1
+assign [class="URxvt"] $ws2
+assign [class="Pcmanfm"] $ws3
+assign [class="mpv"] $ws4
+for_window [class="Spotify"] move to workspace $ws4
+assign [class="Inkscape"] $ws5
+assign [class="Gimp"] $ws5
+assign [class="Allegro"] $ws5
+
+# bindings workspace layouts
+bindsym $mod+t exec terminal.sh
+
+# App's shortcuts
+bindsym $mod+b exec firefox
+bindsym $mod+p exec pcmanfm
+
+
+# Resize window (you can also use the mouse for that)
+mode "resize" {
+       
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym m resize grow width 10 px or 10 ppt
+
+        # Same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # Back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+###~ Color schemes and bar settings
+
+# Window color variables
+set $bg-c				#cae8e6
+set $txt-c				#e8e8e8
+set $inactive-bg-c			#f2f2f2
+set $inactive-txt-c			#9ca4aa
+set $urgent-c				#ffeaed
+# Bar colors variables
+# Bar background
+set $bar-bg-c				#2f343f
+
+# Bar Workspaces colors
+
+set $active-border-c			#cae8e6
+set $active-bar-txt			#c1c8cd
+set $inactive-bar-c			#2f343f
+set $inactive-border-c			#2f343f
+
+# Window colors
+# ~Name					~Border				~Background				~Text				~Indicator
+client.focused				$bg-c				$bg-c					$txt-c				$bg-c
+client.unfocused			$inactive-bg-c			$inactive-bg-c				$inactive-txt-c			$inactive-bg-c
+client.focused_inactive			$inactive-bg-c			$inactive-bg-c				$inactive-txt-c			$inactive-bg-c
+client.urgent				$urgent-c			$inactive-bg-c				$inactive-txt-c			$urgent-c
+
+# Bar colors and settings
+
+bar {
+	
+	# Height of the bar
+	# height 16
+	# Position
+	position top
+	
+	status_command i3status
+	colors {
+		background $bar-bg-c
+			separator #636a78
+			statusline $txt-c
+			
+		# ~Name				~Border					~Background					~Text
+		focused_workspace		$inactive-border-c			$inactive-bar-c					$txt-c
+		inactive_workspace		$inactive-bar-c				$inactive-bar-c					$inactive-txt-c
+		urgent_workspace		$urgent-c				$inactive-bar-c					$inactive-txt-c
+	}
+}
+
+
+###~ Special settings for i3-Gaps
+
+for_window [class="^.*"] border pixel 5
+gaps inner 15
+gaps outer 15
+#smart_gaps on
+#smart_borders on
+
+
+###~ Personnal configs
+
+# Screenshot settings
+# Multi-screen screenshots with scrot
+bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Images/Screenshots && mv $f ~/Images/Screenshots && xclip -selection clipboard -t image/png -i ~/Images/Screenshots/`ls -1 -t ~/Images/Screenshots | head -1`' # All screens
+# Area selection screenshots
+bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Images/Screenshots && mv $f ~/Images/Screenshots && xclip -selection clipboard -t image/png -i ~/Images/Screenshots/`ls -1 -t ~/Images/Screenshots | head -1`' # Area selection
+
+# Multimedia Keys
+# Increase volume
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+# Decrease volume
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+# Mute volume
+bindsym XF86AudioMute exec amixer -q set Master mute
