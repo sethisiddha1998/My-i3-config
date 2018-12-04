@@ -1,15 +1,18 @@
-# Theme used:
+# Some information:
+
+~ Theme used:
 GTK: Arc-Darker
 Icones: Arc
 Firefox: Arc-Darker
 
-# Software used:
+~ Software used:
 networkmanager j4-dmenu-desktop + dmuen pulseaudio 
 pavucontrol rxvt-unicode lxappearance leafpad feh xarchiver scrot xclip
 w3m imagemagick curl
 
-# Fonts used: 
+~ Fonts used: 
 ttf-roboto envypn-font cherry-font
 
 # Screenshot:
-[4.jpg](https://postimg.cc/DWq1P9vB)
+
+[![4.jpg](https://i.postimg.cc/yNGnsKw4/4.jpg)](https://postimg.cc/DWq1P9vB)
