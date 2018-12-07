@@ -1,9 +1,9 @@
 !! Fonts Settings
-URxvt.font:			xft:Ypn envypn:pixelsize=11:	antialias=true
-URxvt.imFont:			xft:Ypn envypn:pixelsize=11:	antialias=true
-URxvt.boldFont:			xft:Ypn envypn:pixelsize=11:	antialias=true
-URxvt.italicFont:		xft:Ypn envypn:pixelsize=11:	antialias=true
-URxvt.boldItalicFont:		xft:Ypn envypn:pixelsize=11:	antialias=true
+URxvt.font:			xft:Ypn envypn:pixelsize=11
+URxvt.imFont:			xft:Ypn envypn:pixelsize=11
+URxvt.boldFont:			xft:Ypn envypn:pixelsize=11
+URxvt.italicFont:		xft:Ypn envypn:pixelsize=11
+URxvt.boldItalicFont:		xft:Ypn envypn:pixelsize=11
 !URxvt.letterSpace: -1
 
 !! Scrollbar settings
